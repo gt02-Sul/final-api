@@ -6,8 +6,8 @@ const options = {
         openapi: '3.0.0',
         info: {
             title: 'API Documentation',
-            version: '1.0.0',
-            description: 'API Documentation for My API',
+            version: '1.0.2',
+            description: 'Documentação da API do projeto final',
         },
         servers: [
             {
@@ -32,11 +32,37 @@ const options = {
                             description: 'Senha do usuário',
                         }
                     },
-                    required: ['fullName', 'email', 'password'],
+                    required: ['full_name', 'email', 'password'],
+                },
+                Address: {
+                    type: 'object',
+                    properties: {
+                        street: {
+                            type: 'string',
+                            description: 'Rua do endereço',
+                        },
+                        number: {
+                            type: 'string',
+                            description: 'Número do endereço',
+                        },
+                        city: {
+                            type: 'string',
+                            description: 'Cidade do endereço',
+                        },
+                        state: {
+                            type: 'string',
+                            description: 'Estado do endereço',
+                        },
+                        zip_code: {
+                            type: 'string',
+                            description: 'Código postal do endereço',
+                        },
+                    },
+                    required: ['street', 'city', 'state', 'zip_code'],
                 },
             },
         },
-  },
+    },
     apis: ['./routes/*.js'], // Caminho para os arquivos de rotas onde você vai documentar as rotas
 };
 

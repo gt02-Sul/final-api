@@ -28,6 +28,9 @@ const createOrderItem = async (req, res) => {
     const orderItem = await OrderItem.create(req.body);
     res.status(201).json(orderItem);
   } catch (error) {
+    if (error.name === 'SequelizeValidationError') {
+      return res.status(400).json({ error: error.errors.map(e => e.message) });
+    }
     res.status(500).json({ error: error.message });
   }
 };
